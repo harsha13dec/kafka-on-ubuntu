@@ -147,7 +147,7 @@
     "jumpboxTemplateName": "jumpbox-resources-",
     "tshirtSizeS": {
       "numberOfZookeeperInstances": 1,
-      "numberOfKafkaInstances": 2,
+      "numberOfKafkaInstances": 1,
       "vmSize": "Standard_B1s"
     },
     "tshirtSizeM": {
