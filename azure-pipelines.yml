@@ -18,8 +18,8 @@ steps:
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'kafka-dileep'
     location: 'Central India'
-    templateLocation: 'Linked artifact'
-    csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
-    csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/harsha13dec/kafka-on-ubuntu/main/kafka-on-ubuntu/azuredeploy.json'
+    csmParametersFileLink: 'https://raw.githubusercontent.com/harsha13dec/kafka-on-ubuntu/main/kafka-on-ubuntu/azuredeploy.parameters.json'
     deploymentMode: 'Incremental'
 
