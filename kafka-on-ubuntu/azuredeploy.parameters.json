@@ -3,19 +3,19 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "GEN-UNIQUE-8"
+      "value": "kafka1234"
     },
     "adminUsername": {
-      "value": "GEN-UNIQUE"
+      "value": "azureuser"
     },
     "adminPassword": {
-      "value": "GEN-PASSWORD"
+      "value": "azureadmin@123"
     },
     "virtualNetworkName": {
-      "value": "GEN-VNET-NAME"
+      "value": "kafka-network"
     },
     "subnetName": {
-      "value": "GEN-SUBNET1-NAME"
+      "value": "kafka-subnet"
     },
     "addressPrefix": {
       "value": "10.0.0.0/16"
