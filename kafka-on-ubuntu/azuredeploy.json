@@ -153,12 +153,12 @@
     "tshirtSizeM": {
       "numberOfZookeeperInstances": 3,
       "numberOfKafkaInstances": 3,
-      "vmSize": "Basic_A2"
+      "vmSize": "Standard_A2"
     },
     "tshirtSizeL": {
       "numberOfZookeeperInstances": 5,
       "numberOfKafkaInstances": 7,
-      "vmSize": "Basic_A4"
+      "vmSize": "Standard_A7"
     },
     "numberOfZookeeperInstances": "[variables(concat('tshirtSize', parameters('tshirtSize'))).numberOfZookeeperInstances]",
     "numberOfKafkaInstances": "[variables(concat('tshirtSize', parameters('tshirtSize'))).numberOfKafkaInstances]",
@@ -289,7 +289,7 @@
     {
       "apiVersion": "2017-03-30",
       "type": "Microsoft.Compute/virtualMachines",
-      "name": "[concat('kafka-zookeepervm', copyindex())]",
+      "name": "[concat('zookprvm', copyindex())]",
       "location": "[parameters('location')]",
       "copy": {
         "name": "virtualZookeeperMachineLoop",
@@ -322,7 +322,7 @@
             "version": "latest"
           },
           "osDisk": {
-            "name": "[concat('kafka-zookeepervm', copyindex(),'_OSDisk')]",
+            "name": "[concat('zookprvm', copyindex(),'_OSDisk')]",
             "caching": "ReadWrite",
             "createOption": "FromImage"
           }
@@ -339,7 +339,7 @@
     {
       "apiVersion": "2017-03-30", 
       "type": "Microsoft.Compute/virtualMachines",
-      "name": "[concat('kafka-kafka-brokervm', copyindex())]",
+      "name": "[concat('brokervm', copyindex())]",
       "location": "[parameters('location')]",
       "copy": {
         "name": "virtualMachineLoop",
@@ -373,7 +373,7 @@
             "version": "latest"
           },
           "osDisk": {
-            "name":  "[concat('kafka-kafka-brokervm', copyindex(),'_OSDisk')]",
+            "name":  "[concat('brokervm', copyindex(),'_OSDisk')]",
             "caching": "ReadWrite",
             "createOption": "FromImage"
           }
@@ -389,7 +389,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat('kafka-zookeepervm', copyindex(), '/installzoo')]",
+      "name": "[concat('zookprvm', copyindex(), '/installzoo')]",
       "apiVersion": "2015-05-01-preview",
       "location": "[parameters('location')]",
       "copy": {
@@ -397,7 +397,7 @@
         "count": "[variables('numberOfZookeeperInstances')]"
       },
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', 'kafka-zookeepervm', copyindex())]",
+        "[concat('Microsoft.Compute/virtualMachines/', 'zookprvm', copyindex())]",
         "[concat('Microsoft.Network/networkInterfaces/', 'niczoo', copyindex())]"
       ],
       "properties": {
@@ -415,7 +415,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat('kafka-brokervm', copyindex(), '/installkafka')]",
+      "name": "[concat('brokervm', copyindex(), '/installkafka')]",
       "apiVersion": "2015-05-01-preview",
       "location": "[parameters('location')]",
       "copy": {
@@ -423,7 +423,7 @@
         "count": "[variables('numberOfKafkaInstances')]"
       },
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', 'kafka-brokervm', copyindex())]",
+        "[concat('Microsoft.Compute/virtualMachines/', 'brokervm', copyindex())]",
         "[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]"
       ],
       "properties": {
