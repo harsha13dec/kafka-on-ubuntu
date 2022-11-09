@@ -13,12 +13,13 @@ steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'Azure subscription 1(46e0c16e-b3a4-4d53-a89e-0ad6f8b48943)'
+    azureResourceManagerConnection: 'Azure subscription 1(1)(46e0c16e-b3a4-4d53-a89e-0ad6f8b48943)'
     subscriptionId: '46e0c16e-b3a4-4d53-a89e-0ad6f8b48943'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'final-test-kafka'
+    resourceGroupName: 'kafka-dileep'
     location: 'Central India'
-    templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/harsha13dec/kafka-on-ubuntu/main/kafka-on-ubuntu/azuredeploy.json'
-    csmParametersFileLink: 'https://raw.githubusercontent.com/harsha13dec/kafka-on-ubuntu/main/kafka-on-ubuntu/azuredeploy.parameters.json'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
+    csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
     deploymentMode: 'Incremental'
+
