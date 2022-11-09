@@ -12,7 +12,7 @@
       "value": "azureadmin@123"
     },
     "virtualNetworkName": {
-      "value": "kafka-network"
+      "value": "kafka-network12"
     },
     "subnetName": {
       "value": "kafka-subnet"
