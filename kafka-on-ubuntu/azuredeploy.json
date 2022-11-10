@@ -197,7 +197,7 @@
       ],
       "properties": {
         "mode": "Incremental",
-        "templateLink": {
+        "templateHash": {
           "uri": "[uri(parameters('_artifactsLocation'), concat(variables('jumpboxTemplateName'), parameters('jumpbox'), '.json', parameters('_artifactsLocationSasToken')))]",
           "contentVersion": "1.0.0.0"
         },
