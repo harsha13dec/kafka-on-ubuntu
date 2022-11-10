@@ -240,6 +240,7 @@
           {
             "name": "ipconfig1",
             "properties": {
+              "publicIPAllocationMethod": "Dynamic"
               "privateIPAllocationMethod": "Static",
               "privateIPAddress": "[concat(parameters('kafkaZooNodeIPAddressPrefix'), copyindex())]",
               "subnet": {
